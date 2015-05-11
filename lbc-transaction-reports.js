@@ -1,9 +1,12 @@
 var co = require('co')
+var config = require(__dirname + '/config/options.js')
+// todo guarded function console.log(__dirname + '/config/options.js')
 var request = require('co-request')
-var nonce = require('nonce') ();
-var crypto = require("crypto");
-var thepayload = new Array();
-var moment = require('moment');
+var nonce = require('nonce') ()
+var crypto = require("crypto")
+var thepayload = new Array()
+var moment = require('moment')
+var fs = require('fs')
 
 function round(value, decimals) {
     return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
@@ -231,13 +234,15 @@ function* buildOptions ( api_key, the_nonce, target_url, api_secret, algorithm, 
     }
 }
 
-// download paginated transactions from localbitcoins.com
+//// download paginated transactions from localbitcoins.com
 co(function* () {  //author doesn't know if "co" non-blocking something-or-other is helping
     console.log('step 1 downloading all transactions from localbitcoins')
-    //grab a read only api key from your localbitcoins account
-    var api_key='73yn8y5c1y1c8tny81mhoiqhwo87y9n8'
-    var api_secret = '89my5yvoureiut2m3t8u2ymt8qu34tu82h02uhmtoqiuhtm0283thqothouitho4'
+    // obtain read only api key from your localbitcoins account and put it in ./config/options.js
+    var api_key = config.localbitcoins_readonly_api_key
+    //console.log('api_key: ' + config.localbitcoins_readonly_api_key);
+    var api_secret = config.localbitcoins_readonly_api_secret
     var target_url = 'https://localbitcoins.com/api/dashboard/released/'
+    
     var algorithm = 'sha256'
     var encoding = 'hex'
     while (target_url != null) {
@@ -253,13 +258,14 @@ co(function* () {  //author doesn't know if "co" non-blocking something-or-other
         else
         {
             thepayload.push(JSON.parse(response.body))
+            console.log(response.body)
         }
     }
     
-    // // or grab from local for testing
-    // var fs = require('fs');
-    // thepayload = yield JSON.parse(fs.readFileSync('transactions.json', 'utf8'))
-    
+     // or grab from local for testing
+//     var fs = require('fs');
+//     thepayload = yield JSON.parse(fs.readFileSync('transactions.json', 'utf8'))
+//    
     // monthlyreport =
     // reportVolumeTimeslice(
     //     reportTransactionList(thepayload)
