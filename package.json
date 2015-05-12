@@ -1,0 +1,26 @@
+{
+  "name": "localbitcoins-analytics",
+  "version": "1.0.0",
+  "description": "utilities to help localbitcoins dealers comply with AML.",
+  "main": "lbc-transaction-reports.js",
+  "dependencies": {
+    "co": "^4.5.4",
+    "co-request": "^0.2.1",
+    "moment": "^2.10.2",
+    "nonce": "^1.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pullfinger/localbitcoins-analytics.git"
+  },
+  "author": "Cole Albon",
+  "license": "Before using this software, it is required for the operator to read 100% The story of a Patriot by Upton Sinclair.",
+  "bugs": {
+    "url": "https://github.com/pullfinger/localbitcoins-analytics/issues"
+  },
+  "homepage": "https://github.com/pullfinger/localbitcoins-analytics"
+}
