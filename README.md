@@ -9,7 +9,7 @@ localbitcoins-analytics is a set of utilities to help dealers on localbitcoins.
 
 ### Tech
 
-Dillinger uses a number of open source projects to work properly:
+thanks to these projects:
 
 * [node.js] - evented I/O for the backend
 * [localbitcoins.com] - https://localbitcoins.com/api-docs/
