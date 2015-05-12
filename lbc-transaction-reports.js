@@ -1,5 +1,7 @@
 var co = require('co')
 var config = require(__dirname + '/config/options.js')
+// console.log(__dirname + '/config/options.js')
+console.log(JSON.stringify(config))
 // todo guarded function console.log(__dirname + '/config/options.js')
 var request = require('co-request')
 var nonce = require('nonce') ()
@@ -238,9 +240,9 @@ function* buildOptions ( api_key, the_nonce, target_url, api_secret, algorithm, 
 co(function* () {  //author doesn't know if "co" non-blocking something-or-other is helping
     console.log('step 1 downloading all transactions from localbitcoins')
     // obtain read only api key from your localbitcoins account and put it in ./config/options.js
-    var api_key = config.localbitcoins_readonly_api_key
-    //console.log('api_key: ' + config.localbitcoins_readonly_api_key);
-    var api_secret = config.localbitcoins_readonly_api_secret
+    var api_key = config.lbc_readonly_api_key
+    console.log('api_key: ' + config.lbc_readonly_api_key);
+    var api_secret = config.lbc_readonly_api_secret
     var target_url = 'https://localbitcoins.com/api/dashboard/released/'
     
     var algorithm = 'sha256'
