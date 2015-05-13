@@ -1,5 +1,6 @@
 'use strict';
 module.exports = {
+    // this is fake.  obtain actual read only api creds from your localbitcoins account
     lbc_readonly_api_key: '73yn8y5c1y1c8tny81mhoiqhwo87y9n8',
     lbc_readonly_api_secret: '89my5yvoureiut2m3t8u2ymt8qu34tu82h02uhmtoqiuhtm0283thqothouitho4'
 };

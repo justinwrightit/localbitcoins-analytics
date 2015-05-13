@@ -25,6 +25,7 @@ $ cd localbitcoins-analytics
 
 $ npm install
 
+```
 
 ### usage
 node --harmony lbc-transaction-reports.js
